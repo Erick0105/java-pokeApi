@@ -10,10 +10,10 @@ public class Pokemon {
     @Override
     public String toString(){
         return "Pokemon\n" +
-                id +
-                nome +
-                type +
-                evolution;
+                "Numero: " + id +
+                "\nNome do Pokemon: " + nome +
+                "\nTipo do pokemon: " + type +
+                "\nSuas Evoluções: " + evolution;
     }
 
 

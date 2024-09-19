@@ -58,11 +58,10 @@ public class PokeApiService {
 
     public Pokemon buscarPokemon(String nome ){
         try{
-            String endereco = "https://pokeapi.co/api/v2/pokemon/" + nome;
-            //HttClient => criar um objeto do HttpClient responsável por fazer a requisição HTTP para a api
+            String pokemon = "https://pokeapi.co/api/v2/pokemon/" + nome;
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(endereco))
+                    .uri(URI.create(pokemon))
                     .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), Pokemon.class);
