@@ -56,9 +56,25 @@ public class PokeApiService {
      *      e em quais jogos eles estão
      * */
 
-    public Pokemon buscarPokemon(String nome ){
+    public Pokemon buscarPokemon(String nome){
         try{
             String pokemon = "https://pokeapi.co/api/v2/pokemon/" + nome;
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(pokemon))
+                    .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return new Gson().fromJson(response.body(), Pokemon.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Pokemon buscarPokemon(int numero){
+        try{
+            String pokemon = "https://pokeapi.co/api/v2/pokemon/" + numero;
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(pokemon))

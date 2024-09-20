@@ -1,5 +1,6 @@
 package br.com.fiap.poke.teste;
 
+import br.com.fiap.poke.model.EscreverJson;
 import br.com.fiap.poke.model.Pokemon;
 import br.com.fiap.poke.service.PokeApiService;
 
@@ -7,15 +8,32 @@ import java.util.Scanner;
 
 public class BuscaPokemon {
     public static void main(String[] args) {
-
         Scanner leitor = new Scanner(System.in);
-        Pokemon poke = new Pokemon();
+        Pokemon pokeAlvo = new Pokemon();
         PokeApiService consulta = new PokeApiService();
+        EscreverJson escrita = new EscreverJson();
 
-        System.out.println("Digite o nome do pokemon: ");
-        var nome = leitor.nextLine();
-        poke = consulta.buscarPokemon(nome);
+        System.out.println("----------MENU----------" +
+                "\n[1] - Deseja procurar o Pokémon pelo nome;" +
+                "\n[2] - Deseja procurar o Pokémon pelo número da pokédex" +
+                "\nOBS: O número você pode digitar um número aleatorio entre 1-1025" +
+                "\n--------------------");
+        int opcao = leitor.nextInt();
+        switch (opcao){
+            case 1:
+                System.out.println("Qual o nome do pokémon alvo");
+                String nome = leitor.next();
+                pokeAlvo = consulta.buscarPokemon(nome);
+                escrita.escreverArquivo(pokeAlvo);
+                break;
+            case 2:
+                System.out.println("Qual o número da pokedex do Pokémon alvo?");
+                int numero = leitor.nextInt();
+                pokeAlvo = consulta.buscarPokemon(numero);
+                escrita.escreverArquivo(pokeAlvo);
+                break;
+        }
 
-        System.out.println(poke.toString());
+        System.out.println(pokeAlvo);
     }
 }
