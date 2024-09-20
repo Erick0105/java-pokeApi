@@ -1,15 +1,17 @@
 package br.com.fiap.poke.model;
 
+import java.util.List;
+
 public class Pokemon {
 
     private int id;
     private String name;
-    private String type;
+    private List<Integer> type;
     private String evolution;
 
     @Override
     public String toString(){
-        return "Pokemon\n" +
+        return "------------Pokemon-------------\n" +
                 "Numero da pokedex: " + id +
                 "\nNome do Pokemon: " + name +
                 "\nTipo do pokemon: " + type +
@@ -33,11 +35,11 @@ public class Pokemon {
         this.name = nome;
     }
 
-    public String getType() {
+    public List<Integer> getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(List<Integer> type) {
         this.type = type;
     }
 
