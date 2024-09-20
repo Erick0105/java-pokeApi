@@ -3,15 +3,15 @@ package br.com.fiap.poke.model;
 public class Pokemon {
 
     private int id;
-    private String nome;
+    private String name;
     private String type;
     private String evolution;
 
     @Override
     public String toString(){
         return "Pokemon\n" +
-                "Numero: " + id +
-                "\nNome do Pokemon: " + nome +
+                "Numero da pokedex: " + id +
+                "\nNome do Pokemon: " + name +
                 "\nTipo do pokemon: " + type +
                 "\nSuas Evoluções: " + evolution;
     }
@@ -26,11 +26,11 @@ public class Pokemon {
     }
 
     public String getNome() {
-        return nome;
+        return name;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.name = nome;
     }
 
     public String getType() {
