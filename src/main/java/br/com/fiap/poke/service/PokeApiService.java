@@ -1,3 +1,5 @@
+//Erick Alves e Luiz Henrique Neri
+
 package br.com.fiap.poke.service;
 
 import br.com.fiap.poke.model.Pokemon;
@@ -50,10 +52,6 @@ public class PokeApiService {
      *     },
      *     ... Mais
      *Vamos filtrar para pegar somente as informações que nos interessa
-     *PokeAPi possui tipo de consultas diferentes tambem que nos abordaremos
-     * como:
-     *      evolução
-     *      e em quais jogos eles estão
      * */
 
     public Pokemon buscarPokemon(String nome){

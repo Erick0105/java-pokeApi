@@ -1,3 +1,5 @@
+//Erick Alves e Luiz Henrique Neri
+
 package br.com.fiap.poke.model;
 
 import com.google.gson.Gson;

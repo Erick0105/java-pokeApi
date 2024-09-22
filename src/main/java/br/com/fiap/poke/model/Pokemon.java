@@ -1,3 +1,5 @@
+//Erick Alves e Luiz Henrique Neri
+
 package br.com.fiap.poke.model;
 
 import java.util.List;
@@ -6,16 +8,12 @@ public class Pokemon {
 
     private int id;
     private String name;
-    private List<Integer> type;
-    private String evolution;
 
     @Override
     public String toString(){
-        return "------------Pokemon-------------\n" +
+        return "\n------------Pokemon-------------\n" +
                 "Numero da pokedex: " + id +
-                "\nNome do Pokemon: " + name +
-                "\nTipo do pokemon: " + type +
-                "\nSuas Evoluções: " + evolution;
+                "\nNome do Pokemon: " + name;
     }
 
 
@@ -35,19 +33,4 @@ public class Pokemon {
         this.name = nome;
     }
 
-    public List<Integer> getType() {
-        return type;
-    }
-
-    public void setType(List<Integer> type) {
-        this.type = type;
-    }
-
-    public String getEvolution() {
-        return evolution;
-    }
-
-    public void setEvolution(String evolution) {
-        this.evolution = evolution;
-    }
 }
