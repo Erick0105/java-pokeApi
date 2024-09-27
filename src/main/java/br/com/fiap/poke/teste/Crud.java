@@ -51,10 +51,16 @@ public class Crud {
                     System.out.println("Pokemon Cadastrado com sucesso");
                     break;
                 case 2:
-
+                    System.out.println("-------------PESQUISA-------------" +
+                            "\nQual o nome do pokémon que deseja procurar?" +
+                            "\nOBS: O pokémon tem que estar cadastrado");
+                    String nomePoke = leitor.nextLine();
+                    database.buscarPorNom(nomePoke);
                     break;
                 case 3:
-
+                    System.out.println("Digite o numero do pokemon que você deseja procurar: ");
+                    int num = leitor.nextInt();
+                    database.buscarPorNum(num);
                     break;
                 case 4:
                     System.out.println("Listando Pokémon" +
