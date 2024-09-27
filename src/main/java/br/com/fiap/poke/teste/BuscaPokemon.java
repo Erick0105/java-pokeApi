@@ -2,7 +2,6 @@
 
 package br.com.fiap.poke.teste;
 
-import br.com.fiap.poke.model.EscreverJson;
 import br.com.fiap.poke.model.Pokemon;
 import br.com.fiap.poke.service.PokeApiService;
 
@@ -13,7 +12,6 @@ public class BuscaPokemon {
         Scanner leitor = new Scanner(System.in);
         Pokemon pokeAlvo = new Pokemon();
         PokeApiService consulta = new PokeApiService();
-        EscreverJson escrita = new EscreverJson();
 
         boolean executar = true;
 
@@ -30,14 +28,14 @@ public class BuscaPokemon {
                     String nome = leitor.next();
                     leitor.nextLine();
                     pokeAlvo = consulta.buscarPokemon(nome);
-                    escrita.escreverArquivo(pokeAlvo);
+
                     break;
                 case 2:
                     System.out.println("Qual o número da pokedex do Pokémon alvo?");
                     int numero = leitor.nextInt();
                     leitor.nextLine();
                     pokeAlvo = consulta.buscarPokemon(numero);
-                    escrita.escreverArquivo(pokeAlvo);
+
                     break;
             }
             System.out.println(pokeAlvo);
