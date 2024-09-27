@@ -57,7 +57,7 @@ public class PokemonDao {
         PreparedStatement comandoSql = null;
         try{
             comandoSql = conexao.prepareStatement("SELECT * FROM pokemon WHERE nome_poke = ?");
-            comandoSql.setString(2, nomPok);
+            comandoSql.setString(1, nomPok);
             ResultSet rs = comandoSql.executeQuery();
             if(rs.next()){
                 pokemon.setId(rs.getInt(1));
