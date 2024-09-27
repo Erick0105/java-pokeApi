@@ -22,7 +22,7 @@ public class PokemonDao {
             String sql = "insert into pokemon(num_pokedex, nome_poke)" +
                     " values(?,?,?,?)";
             comandoSql = conexao.prepareStatement(sql);
-            comandoSql.setInt(1, pokemon.getNum_pokedex());
+            comandoSql.setInt(1, pokemon.getId());
             comandoSql.setString(2, pokemon.getNome());
 
             comandoSql.executeUpdate();
@@ -40,7 +40,7 @@ public class PokemonDao {
             comandoSql.setInt(1, numPoke);
             ResultSet rs = comandoSql.executeQuery();
             if(rs.next()){
-                pokemon.setNum_pokedex(rs.getInt(1));
+                pokemon.setId(rs.getInt(1));
                 pokemon.setNome(rs.getString(2));
             }
             conexao.close();
@@ -51,25 +51,23 @@ public class PokemonDao {
         return pokemon;
     }
 
-    public List<Produto> listar(){
-        List<Produto> produtos = new ArrayList<>();
+    public List<Pokemon> listar(){
+        List<Pokemon> listaPokemon = new ArrayList<>();
         PreparedStatement comandoSql = null;
         try{
-            comandoSql = conexao.prepareStatement("SELECT * FROM tbl_produto");
+            comandoSql = conexao.prepareStatement("SELECT * FROM pokemon");
             ResultSet rs = comandoSql.executeQuery();
             while (rs.next()){
-                Produto produto = new Produto();
-                produto.setCodigo(rs.getInt(1));
-                produto.setNome(rs.getString(2));
-                produto.setPreco(rs.getDouble(3));
-                produto.setQuantidade(rs.getInt(4));
-                produtos.add(produto);
+                Pokemon pokemon = new Pokemon();
+                pokemon.setId(rs.getInt(1));
+                pokemon.setNome(rs.getString(2));
+                listaPokemon.add(pokemon);
             }
             conexao.close();
             comandoSql.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return produtos;
+        return listaPokemon;
     }
 }
