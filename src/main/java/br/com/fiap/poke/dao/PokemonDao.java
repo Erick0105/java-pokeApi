@@ -20,7 +20,7 @@ public class PokemonDao {
         PreparedStatement comandoSql = null;
         try{
             String sql = "insert into pokemon(num_pokedex, nome_poke)" +
-                    " values(?,?,?,?)";
+                    " values(?,?)";
             comandoSql = conexao.prepareStatement(sql);
             comandoSql.setInt(1, pokemon.getId());
             comandoSql.setString(2, pokemon.getNome());

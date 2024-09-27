@@ -2,6 +2,7 @@
 
 package br.com.fiap.poke.teste;
 
+import br.com.fiap.poke.dao.PokemonDao;
 import br.com.fiap.poke.model.Pokemon;
 import br.com.fiap.poke.service.PokeApiService;
 
@@ -12,7 +13,8 @@ public class Crud {
         Scanner leitor = new Scanner(System.in);
         Pokemon pokeAlvo = new Pokemon();
         PokeApiService consulta = new PokeApiService();
-
+        PokemonDao database = new PokemonDao();
+        boolean repetir = true;
 
         do {
             System.out.println("------------------CRUD------------------" +
@@ -24,7 +26,28 @@ public class Crud {
             int opcaoCrud = leitor.nextInt();
             switch (opcaoCrud){
                 case 1:
-
+                    System.out.println("------------CADASTRAR------------" +
+                            "\n[1] - Deseja procurar o Pokémon para cadastrar pelo nome;" +
+                            "\n[2] - Deseja procurar o Pokémon para cadastrar pelo número da pokédex" +
+                            "\nOBS: O número você pode digitar um número aleatorio entre 1-1025" +
+                            "\n---------------------------");
+                    int opcaoCadastrar = leitor.nextInt();
+                    switch (opcaoCadastrar){
+                        case 1:
+                            System.out.println("Qual o nome do pokémon alvo");
+                            String nome = leitor.next();
+                            leitor.nextLine();
+                            pokeAlvo = consulta.buscarPokemon(nome);
+                            break;
+                        case 2:
+                            System.out.println("Qual o número da pokedex do Pokémon alvo?");
+                            int numero = leitor.nextInt();
+                            leitor.nextLine();
+                            pokeAlvo = consulta.buscarPokemon(numero);
+                            break;
+                    }
+                    database.Cadastrar(pokeAlvo);
+                    System.out.println("Pokemon Cadastrado com sucesso");
                     break;
                 case 2:
 
@@ -36,8 +59,8 @@ public class Crud {
 
                     break;
             }
-
-        } while (repetir)
+            repetir = false;
+        } while (repetir);
 
 
 
@@ -50,28 +73,7 @@ public class Crud {
         boolean executar = true;
 
         while (executar){
-            System.out.println("----------MENU----------" +
-                    "\n[1] - Deseja procurar o Pokémon pelo nome;" +
-                    "\n[2] - Deseja procurar o Pokémon pelo número da pokédex" +
-                    "\nOBS: O número você pode digitar um número aleatorio entre 1-1025" +
-                    "\n--------------------");
-            int opcao = leitor.nextInt();
-            switch (opcao){
-                case 1:
-                    System.out.println("Qual o nome do pokémon alvo");
-                    String nome = leitor.next();
-                    leitor.nextLine();
-                    pokeAlvo = consulta.buscarPokemon(nome);
 
-                    break;
-                case 2:
-                    System.out.println("Qual o número da pokedex do Pokémon alvo?");
-                    int numero = leitor.nextInt();
-                    leitor.nextLine();
-                    pokeAlvo = consulta.buscarPokemon(numero);
-
-                    break;
-            }
             System.out.println(pokeAlvo);
 
             System.out.println("Voce Deseja Procurar por outro Pokémon? s/n ");
