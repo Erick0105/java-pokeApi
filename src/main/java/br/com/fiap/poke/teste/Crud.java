@@ -51,8 +51,12 @@ public class Crud {
                     break;
                 case 2:
 
+
                     break;
                 case 3:
+                    System.out.println("Digite o numero do pokemon que você deseja procurar: ");
+                    int num = leitor.nextInt();
+                    database.buscarPorNum(num);
 
                     break;
                 case 4:
