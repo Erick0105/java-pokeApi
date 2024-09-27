@@ -22,6 +22,7 @@ public class Crud {
                     "\n[2] - Buscar pokémon por nome" +
                     "\n[3] - Buscar pokémon pelo número da Pokédex" +
                     "\n[4] - Listar todos os pokémons cadastrados" +
+                    "\n[5] - Finalizar Programa" +
                     "\n----------------------------------------");
             int opcaoCrud = leitor.nextInt();
             switch (opcaoCrud){
@@ -60,8 +61,10 @@ public class Crud {
                             database.listar());
 
                     break;
+                case 5:
+                    System.out.printf("Programa finalizado");
+                    repetir = false;
             }
-            repetir = false;
         } while (repetir);
     }
 }
