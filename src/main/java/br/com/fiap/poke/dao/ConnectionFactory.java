@@ -10,7 +10,7 @@ public class ConnectionFactory {
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl",
-                    "rm556862", "010506");
+                    "*****", "*****");
         }catch (SQLException erro){
             erro.printStackTrace();
         } catch (ClassNotFoundException e) {
