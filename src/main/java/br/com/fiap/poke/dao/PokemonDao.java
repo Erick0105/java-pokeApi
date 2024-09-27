@@ -16,6 +16,7 @@ public class PokemonDao {
     public PokemonDao() {
         this.conexao = ConnectionFactory.obterConexao();
     }
+
     public void Cadastrar(Pokemon pokemon){
         PreparedStatement comandoSql = null;
         try{

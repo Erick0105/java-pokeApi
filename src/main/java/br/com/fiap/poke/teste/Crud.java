@@ -22,7 +22,6 @@ public class Crud {
                     "\n[2] - Buscar pokémon por nome" +
                     "\n[3] - Buscar pokémon pelo número da Pokédex" +
                     "\n[4] - Listar todos os pokémons cadastrados" +
-                    "\n[5] - Fechar Programa" +
                     "\n----------------------------------------");
             int opcaoCrud = leitor.nextInt();
             switch (opcaoCrud){
@@ -51,11 +50,7 @@ public class Crud {
                     System.out.println("Pokemon Cadastrado com sucesso");
                     break;
                 case 2:
-                    System.out.println("-------------PESQUISA-------------" +
-                            "\nQual o nome do pokémon que deseja procurar?" +
-                            "\nOBS: O pokémon tem que estar cadastrado");
-                    String nomePoke = leitor.nextLine();
-                    database.buscarPorNom(nomePoke);
+
                     break;
                 case 3:
 
@@ -65,12 +60,8 @@ public class Crud {
                             database.listar());
 
                     break;
-                case 5:
-                    System.out.printf("Programa finalizado");
-                    repetir = false;
-                    break;
             }
-
+            repetir = false;
         } while (repetir);
     }
 }
