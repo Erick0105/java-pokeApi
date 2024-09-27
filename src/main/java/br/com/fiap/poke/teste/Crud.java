@@ -22,7 +22,7 @@ public class Crud {
                     "\n[2] - Buscar pokémon por nome" +
                     "\n[3] - Buscar pokémon pelo número da Pokédex" +
                     "\n[4] - Listar todos os pokémons cadastrados" +
-                    "----------------------------------------");
+                    "\n----------------------------------------");
             int opcaoCrud = leitor.nextInt();
             switch (opcaoCrud){
                 case 1:
@@ -56,33 +56,12 @@ public class Crud {
 
                     break;
                 case 4:
+                    System.out.println("Listando Pokémon" +
+                            database.listar());
 
                     break;
             }
             repetir = false;
         } while (repetir);
-
-
-
-
-
-
-
-
-
-        boolean executar = true;
-
-        while (executar){
-
-            System.out.println(pokeAlvo);
-
-            System.out.println("Voce Deseja Procurar por outro Pokémon? s/n ");
-            String op = leitor.nextLine();
-
-            if (op.equals("n")) {
-                executar = false;
-            }
-
-        }
     }
 }
