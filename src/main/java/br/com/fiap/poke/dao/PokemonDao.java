@@ -51,6 +51,25 @@ public class PokemonDao {
         return pokemon;
     }
 
+    public Pokemon buscarPorNom(String nomPok){
+        Pokemon pokemon = new Pokemon();
+        PreparedStatement comandoSql = null;
+        try{
+            comandoSql = conexao.prepareStatement("SELECT * FROM pokemon WHERE nome_poke = ?");
+            comandoSql.setString(2, nomPok);
+            ResultSet rs = comandoSql.executeQuery();
+            if(rs.next()){
+                pokemon.setId(rs.getInt(1));
+                pokemon.setNome(rs.getString(2));
+            }
+            conexao.close();
+            comandoSql.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return pokemon;
+    }
+
     public List<Pokemon> listar(){
         List<Pokemon> listaPokemon = new ArrayList<>();
         PreparedStatement comandoSql = null;
