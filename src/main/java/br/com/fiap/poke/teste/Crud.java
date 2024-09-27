@@ -7,11 +7,45 @@ import br.com.fiap.poke.service.PokeApiService;
 
 import java.util.Scanner;
 
-public class BuscaPokemon {
+public class Crud {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         Pokemon pokeAlvo = new Pokemon();
         PokeApiService consulta = new PokeApiService();
+
+
+        do {
+            System.out.println("------------------CRUD------------------" +
+                    "\n[1] - Cadastrar um Pokémon" +
+                    "\n[2] - Buscar pokémon por nome" +
+                    "\n[3] - Buscar pokémon pelo número da Pokédex" +
+                    "\n[4] - Listar todos os pokémons cadastrados" +
+                    "----------------------------------------");
+            int opcaoCrud = leitor.nextInt();
+            switch (opcaoCrud){
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+            }
+
+        } while (repetir)
+
+
+
+
+
+
+
+
 
         boolean executar = true;
 
